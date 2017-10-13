@@ -75,7 +75,7 @@ q' = v,
 respectively. Eliminating $\rbr{p, v}$ in \cref{eq:ext-euler-lag} recovers the 
 Euler--Lagrange equation.
 
-To move to the Hamiltonian formalism, transforms the action in 
+To move to the Hamiltonian formalism, transform the action in 
 \cref{eq:action-v}
 \begin{align}
 \sfun{S}{q, p, v} &\equiv \int_{t_1}^{t_2}\dd t\,\cbr{pq' - 
@@ -96,6 +96,7 @@ In the current case, all velocity can be solved, and one passes to the
 %\equiv
 \rfun{H^\text{v}}{q, p, \rfun{\bar v}{q, p}} \equiv
 p\rfun{\bar v}{q, p} - \rfun{L^\text{v}}{q, \rfun{\bar v}{q, p}}.
+\label{eq:H^c}
 \end{equation}
 
 \paragraph{Parametrised system}
@@ -121,10 +122,12 @@ The corresponding velocity formalism reads
 N \rfun{L^\text{v}}{q, \frac{u}{N}}}.
 \label{eq:action-Nu}
 \end{align}
-Variation of \cref{eq:action-Nu} with respect to $u$ gives
+
+Let us try to move to the Hamiltonian formalism. Variation of 
+\cref{eq:action-Nu} with respect to $u$ gives
 \begin{equation}
 p_q = \frpa{\tilde L^\text{v}}{u} \equiv
-\rfun{\frac{L^\text{v}}{v}}{q, \frac{u}{N}},
+\rfun{\frpa{L^\text{v}}{v}}{q, \frac{u}{N}},
 \label{eq:p_q-u-N}
 \end{equation}
 whereas the variation with respect to $N$ leads to
@@ -143,18 +146,20 @@ u = \rfun{\bar u}{q, p_q, N} \coloneqq N \rfun{\bar v}{q, p_q}.
 \label{eq:u/N}
 \end{equation}
 from \cref{eq:p_q-u-N} (compare it with the second equation in 
-\cref{eq:ext-euler-lag}!). Inserting \cref{eq:p_q-u-N,eq:v-bar-v,eq:u/N} into
+\cref{eq:ext-euler-lag}!). Inserting \cref{eq:v-bar-v,eq:u/N} into
 \cref{eq:p_t-u-N} yields
 \begin{equation}
 p_t = \rfun{L^\text{v}}{q, \rfun{\bar v}{q, p_q}} -
 \rfun{\bar v}{q, p_q}\cdot p_q
-\equiv \rfun{H^\text{c}}{q, p_q}.
+\equiv -\rfun{H^\text{c}}{q, p_q},
 \label{eq:p_t-H^c}
 \end{equation}
-One sees that \cref{eq:p_t-H^c} contains no more velocity, and $N$ cannot be 
-solved by the positions and momenta.
+where used is made of \cref{eq:H^c} in the last step. One sees that 
+\cref{eq:p_t-H^c} contains no more velocity, and $N$ cannot be solved by the 
+positions and momenta.
 
-Inserting the partially solved set of velocities, the action
+Inserting the \emph{partially solved set of velocities} (and not 
+\cref{eq:p_t-H^c}, which is incompetent to eliminate the velocity), the action
 \cref{eq:action-Nu} reads
 \begin{align}
 \sfun{S}{q, t, p_q, p_t, N} &\coloneqq \sfun{S}{q, t, p_q, p_t, \bar 
@@ -166,12 +171,15 @@ p_t N - \rfun{\tilde L^\text{v}}{q, t, \bar u, N}}} \nonumber \\
 \end{align}
 in which
 \begin{equation}
-\tilde H^\text{p} = N \rfun{\tilde H_\perp}{q, p_q},\qquad
+\tilde H^\text{p} = N \rfun{\tilde H_\perp}{q, t, p_q, p_t},\qquad
 \tilde H_\perp \coloneqq p_t + \rfun{H^\text{c}}{q, p_q}
 \end{equation}
 are the \emph{Hamiltonian with primary constraints} and \emph{Hamiltonian 
 constraint}, respectively. The canonical Hamiltonian in this case vanishes, 
-since there are only constraints in $\tilde H^\text{p}$ and nothing else left.
+since there are only constraints in $\tilde H^\text{p}$ and nothing else left. 
+\Cref{eq:p_t-H^c} is a \emph{(primary) constraint} and is to be solved along 
+with the Hamiltonian equations of motion, which can be found in 
+\cite[ch.~2]{Gitman_1990}.
 
 
 
