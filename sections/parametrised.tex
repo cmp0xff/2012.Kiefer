@@ -1,0 +1,204 @@
+\section{Parametrised and relational systems}
+
+\subsection{Particle systems}
+
+\cite{Gitman_1990,Prokhorov_2009,Rothe_2010} can also be helpful.
+
+\subsubsection{Parametrised non-relativistic particle}
+
+The advantage of the complication below is to clarify the steps at which the 
+constraints are not to be imposed.
+
+\paragraph{Un-parametrised system}
+
+The action reads
+\begin{equation}
+\sfun{S}{q} \coloneqq \int_{t_1}^{t_2}\dd t\,\rfun{L}{q, q'},
+\label{eq:action-ori}
+\end{equation}
+where
+\begin{equation}
+q' \coloneqq \frde{q}{t}.
+\end{equation}
+It can be rephrased (see below) in the velocity formalism 
+\cite[ch.~2]{Gitman_1990}
+\begin{equation}
+\sfun{S}{q, p, v} \coloneqq \int_{t_1}^{t_2}\dd t\,\cbr{p\rbr{q'-v}+
+\rfun{L^\text{v}}{q, v}},
+\label{eq:action-v}
+\end{equation}
+in which
+\begin{equation}
+\rfun{L^\text{v}}{q, v} \coloneqq \rfun{L}{q, q'}.
+\end{equation}
+Variation of \cref{eq:action-v} with respect to $\rbr{q, p, v}$ gives
+\begin{equation}
+\rfun{\frpa{L^\text{v}}{q}}{q, v} = p',\quad
+\rfun{\frpa{L^\text{v}}{v}}{q, v} = p,\quad
+q' = v,
+\label{eq:ext-euler-lag}
+\end{equation}
+respectively. Eliminating $\rbr{p, v}$ in \cref{eq:ext-euler-lag} recovers the 
+Euler--Lagrange equation.
+
+To move to the Hamiltonian formalism, transform the action in 
+\cref{eq:action-v}
+\begin{align}
+\sfun{S}{q, p, v} &\equiv \int_{t_1}^{t_2}\dd t\,\cbr{pq' - 
+\rbr{pv-\rfun{L^\text{v}}{q, v}}} \nonumber \\
+&\eqqcolon \int_{t_1}^{t_2}\dd t\,\cbr{pq' - \rfun{H^\text{v}}{q, p, v}}.
+\end{align}
+One may solve $v$ by $\rbr{q, p}$ from the second equation in 
+\cref{eq:ext-euler-lag} by partially inverse the function 
+$\rfun{\frpa{L^\text{v}}{v}}{q, v}$, and denote the solution by
+\begin{equation}
+v = \rfun{\bar v}{q, p}.
+\label{eq:v-bar-v}
+\end{equation}
+In the current case, all velocity can be solved, and one passes to the 
+\emph{canonical Hamiltonian} in one leap
+\begin{equation}
+\rfun{H^\text{c}}{q, p} \coloneqq %\fat{H^\text{v}}{v = \rfun{\bar v}{q, p}}
+%\equiv
+\rfun{H^\text{v}}{q, p, \rfun{\bar v}{q, p}} \equiv
+p\rfun{\bar v}{q, p} - \rfun{L^\text{v}}{q, \rfun{\bar v}{q, p}}.
+\label{eq:H^c}
+\end{equation}
+
+\paragraph{Parametrised system}
+
+Parametrising $t$ in \cref{eq:action-ori} gives
+\begin{equation}
+\sfun{S}{q, t} = \int_{t_1}^{t_2} \dd \tau\,\rfun{\tilde L}{q, t, \dot 
+q, \dot t},
+\end{equation}
+where
+\begin{equation}
+\rfun{\tilde L}{q, t, \dot q, \dot t} \coloneqq \dot t \rfun{L}{q, 
+\frac{\dot q}{\dot t}},\quad
+\dot \rfun{f}{q,t} \coloneqq \rfun{\frde{f}{\tau}}{q,t}.
+\end{equation}
+The corresponding velocity formalism reads
+\begin{align}
+\sfun{S}{q, t, p_q, p_t, u, N} &\coloneqq \int_{t_1}^{t_2}\dd \tau\,
+\cbr{p_q\rbr{\dot q-u}+p_t\rbr{\dot t-N} +
+\rfun{\tilde L^\text{v}}{q, t, u, N}} \nonumber \\
+&=\int_{t_1}^{t_2}\dd \tau\,
+\cbr{p_q\rbr{\dot q-u}+p_t\rbr{\dot t-N} +
+N \rfun{L^\text{v}}{q, \frac{u}{N}}}.
+\label{eq:action-Nu}
+\end{align}
+
+Let us try to move to the Hamiltonian formalism. Variation of 
+\cref{eq:action-Nu} with respect to $u$ gives
+\begin{equation}
+p_q = \frpa{\tilde L^\text{v}}{u} \equiv
+\rfun{\frpa{L^\text{v}}{v}}{q, \frac{u}{N}},
+\label{eq:p_q-u-N}
+\end{equation}
+whereas the variation with respect to $N$ leads to
+\begin{equation}
+p_t = \frpa{\tilde L^\text{v}}{N} \equiv
+\rfun{L^\text{v}}{q, \frac{u}{N}} - \frac{u}{N}\cdot
+\rfun{\frpa{L^\text{v}}{v}}{q,\frac{u}{N}}.
+\label{eq:p_t-u-N}
+\end{equation}
+Can one in this case solve both $\rbr{u, N}$ by $\rbr{q, t, p_q, p_t}$ from 
+\cref{eq:p_t-u-N,eq:p_q-u-N}? The answer is negative. With the help of 
+\cref{eq:v-bar-v}, one finds
+\begin{equation}
+\frac{u}{N} = \rfun{\bar v}{q, p_q} \quad \Leftrightarrow \quad
+u = \rfun{\bar u}{q, p_q, N} \coloneqq N \rfun{\bar v}{q, p_q}.
+\label{eq:u/N}
+\end{equation}
+from \cref{eq:p_q-u-N} (compare it with the second equation in 
+\cref{eq:ext-euler-lag}!). Inserting \cref{eq:v-bar-v,eq:u/N} into
+\cref{eq:p_t-u-N} yields
+\begin{equation}
+p_t = \rfun{L^\text{v}}{q, \rfun{\bar v}{q, p_q}} -
+\rfun{\bar v}{q, p_q}\cdot p_q
+\equiv -\rfun{H^\text{c}}{q, p_q},
+\label{eq:p_t-H^c}
+\end{equation}
+where used is made of \cref{eq:H^c} in the last step. One sees that 
+\cref{eq:p_t-H^c} contains no more velocity, and $N$ cannot be solved by the 
+positions and momenta.
+
+Inserting the \emph{partially solved set of velocities} (and not 
+\cref{eq:p_t-H^c}, which is incompetent to eliminate the velocity), the action
+\cref{eq:action-Nu} reads
+\begin{align}
+\sfun{S}{q, t, p_q, p_t, N} &\coloneqq \sfun{S}{q, t, p_q, p_t, \bar 
+u, N} \nonumber \\
+&= \int_{t_1}^{t_2}\dd \tau\,\cbr{p_q \dot q + p_t \dot t - \sbr{ p_q \bar u + 
+p_t N - \rfun{\tilde L^\text{v}}{q, t, \bar u, N}}} \nonumber \\
+& \eqqcolon \int_{t_1}^{t_2}\dd \tau\,
+\cbr{p_q \dot q + p_t\dot t - \rfun{\tilde H^\text{p}}{q, t, p_q, p_t, N}},
+\end{align}
+in which
+\begin{equation}
+\tilde H^\text{p} = N \rfun{\tilde H_\perp}{q, t, p_q, p_t},\qquad
+\tilde H_\perp \coloneqq p_t + \rfun{H^\text{c}}{q, p_q}
+\end{equation}
+are the \emph{Hamiltonian with primary constraints} and \emph{Hamiltonian 
+constraint}, respectively. The canonical Hamiltonian in this case vanishes, 
+since there are only constraints in $\tilde H^\text{p}$ and nothing else left. 
+\Cref{eq:p_t-H^c} is a \emph{(primary) constraint} and is to be solved along 
+with the Hamiltonian equations of motion, which can be found in 
+\cite[ch.~2]{Gitman_1990}.
+
+\paragraph{Homogeneous Lagrangian in the Hamiltonian formalism}
+
+\begin{align}
+\phantom{}&\sfun{S}{q^i, \pi_a, P_\alpha, N^a, V^\alpha} \nonumber \\
+\coloneqq& \int_{t_1}^{t_2} \dd t\,\cbr{ \pi_a \rbr{\dot q^a - N^a} + P_\alpha
+\rbr{\dot q^\alpha - V^\alpha} + \rfun{L^\text{v}}{q^i, N^a, V^\alpha}}.
+\end{align}
+Variation of $\rbr{\pi_a, P_\alpha}$ gives
+\begin{align}
+\pi_a &= \rfun{\frpa{L^\text{v}}{N^a}}{q^i, N^a, V^\alpha},
+\label{eq:pi_a-1}\\
+P_\alpha &= \rfun{\frpa{L^\text{v}}{V^\alpha}}{q^i, N^a, V^\alpha}.
+\label{eq:P_alpha-1}
+\end{align}
+$\cbr{v^i}$ is divided into $\cbr{N^a}$ and $\cbr{V^\alpha}$ such that the 
+latter is the maximal set of primary solvable velocities. Inverting 
+\cref{eq:P_alpha-1} yields the solution
+\begin{equation}
+V^\alpha = \rfun{\bar V^\alpha}{q^i, P_\alpha, N^\alpha}.
+\label{eq:V^alpha-sol}
+\end{equation}
+Inserting \cref{eq:V^alpha-sol} into \cref{eq:pi_a-1} does not yield any 
+further solvable velocity, and the results are
+\begin{equation}
+\pi_a - \rfun{f_a}{q^i, P_\alpha} \coloneqq \pi_a - 
+\rfun{\frpa{L^\text{v}}{N^a}}{q^i, N^a,
+\rfun{\bar V^a}{q^i, P_\alpha, N^\alpha}} = 0.
+\label{eq:pi_a-f_a}
+\end{equation}
+Note that in \cref{eq:pi_a-f_a} all $N^a$ cancels out; otherwise they may be 
+further solved, which contradicts the maximality of $\cbr{V^a}$. 
+\Cref{eq:pi_a-f_a} will be imposed at the dynamical level.
+
+If $L^\text{v}$ is linear in $\rbr{N^a, V^\alpha}$, one has
+\begin{equation}
+\rfun{L^\text{v}}{q^i, N^a, V^\alpha} = \frpa{L^\text{v}}{N^a}N^a + 
+\frpa{L^\text{v}}{V^\alpha}V^\alpha;
+\end{equation}
+inserting \cref{eq:P_alpha-1,eq:V^alpha-sol} (these are equivalent!) yields
+\begin{equation}
+\rfun{L^\text{v}}{q^i, N^a, \bar V^\alpha} = \rfun{f_a}{q^i, P_\alpha} N^a + 
+P_\alpha \bar V^\alpha.
+\label{eq:L^v-bar-V}
+\end{equation}
+Now the Hamiltonian with primary constraint can be calculated
+\begin{align}
+H^\text{p} &= \pi_a N^a + P_\alpha \bar V^\alpha - 
+\rfun{L^\text{v}}{q^i, N^a, \bar V^\alpha} \nonumber \\
+&\equiv \rbr{\pi_a - \rfun{f_a}{q^i, P_\alpha}}N^a.
+\end{align}
+
+
+
+\cite{Border_2000}
+
