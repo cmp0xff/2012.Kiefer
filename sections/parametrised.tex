@@ -1,14 +1,18 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Parametrised and relational systems}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Particle systems}
 
 \cite{Gitman_1990,Prokhorov_2009,Rothe_2010} can also be helpful.
 
+%%%%%%%%%%%%%%%%
 \subsubsection{Parametrised non-relativistic particle}
 
 The advantage of the complication below is to clarify the steps at which the 
 constraints are not to be imposed.
 
+%%%%%%%%
 \paragraph{Un-parametrised system}
 
 The action reads
@@ -65,6 +69,7 @@ p\rfun{\bar v}{q, p} - \rfun{L^\text{v}}{q, \rfun{\bar v}{q, p}}.
 \label{eq:H^c}
 \end{equation}
 
+%%%%%%%%
 \paragraph{Parametrised system}
 
 Parametrising $t$ in \cref{eq:action-ori} gives
@@ -147,6 +152,7 @@ since there are only constraints in $\tilde H^\text{p}$ and nothing else left.
 with the Hamiltonian equations of motion, which can be found in 
 \cite[ch.~2]{Gitman_1990}.
 
+%%%%%%%%
 \paragraph{Homogeneous Lagrangian in the Hamiltonian formalism}
 
 \begin{align}
@@ -180,10 +186,19 @@ Note that in \cref{eq:pi_a-f_a} all $N^a$ cancels out; otherwise they may be
 further solved, which contradicts the maximality of $\cbr{V^a}$. 
 \Cref{eq:pi_a-f_a} will be imposed at the dynamical level.
 
-If $L^\text{v}$ is linear in $\rbr{N^a, V^\alpha}$, one has
+If $L^\text{v}$ is linear in $\rbr{N^a, V^\alpha}$, it is equivalent by Euler's 
+Homogeneous Function Theorem \cite{Border_2000} that
 \begin{equation}
 \rfun{L^\text{v}}{q^i, N^a, V^\alpha} = \frpa{L^\text{v}}{N^a}N^a + 
-\frpa{L^\text{v}}{V^\alpha}V^\alpha;
+\frpa{L^\text{v}}{V^\alpha}V^\alpha,
+\label{eq:homogeneity-1}
+\end{equation}
+or
+\begin{equation}
+\rfun{L^\text{v}}{q^i, N^a, \bar V^\alpha} =
+\rfun{\frpa{L^\text{v}}{N^a}}{q^i, N^b, \bar V^\alpha} N^a + 
+\rfun{\frpa{L^\text{v}}{V^\alpha}}{q^i, N^a, \bar V^\beta} \bar V^\alpha;
+\label{eq:homogeneity-2}
 \end{equation}
 inserting \cref{eq:P_alpha-1,eq:V^alpha-sol} (these are equivalent!) yields
 \begin{equation}
@@ -193,12 +208,57 @@ P_\alpha \bar V^\alpha.
 \end{equation}
 Now the Hamiltonian with primary constraint can be calculated
 \begin{align}
-H^\text{p} &= \pi_a N^a + P_\alpha \bar V^\alpha - 
-\rfun{L^\text{v}}{q^i, N^a, \bar V^\alpha} \nonumber \\
-&\equiv \rbr{\pi_a - \rfun{f_a}{q^i, P_\alpha}}N^a.
+H^\text{p} &\coloneqq \pi_a N^a + P_\alpha \bar V^\alpha - 
+\rfun{L^\text{v}}{q^i, N^a, \bar V^\alpha} \label{eq:gen-H^p-homo-def} \\
+&\equiv \rbr{\pi_a - \rfun{f_a}{q^i, P_\alpha}}N^a,
 \end{align}
+where \cref{eq:gen-H^p-homo-def} is the definition of $H^\text{p}$ in general
+theory \cite[ch.~2]{Gitman_1990}. One sees that the Hamiltonian with primary 
+constraints consists of constraints only, hence the canonical Hamiltonian 
+$H^\text{c}$ vanishes.
 
+On the other hand, if $H^\text{c}$ vanishes, one finds that
+\begin{align}
+H^\text{p} &= H^\text{c} + \rbr{\pi_a - \rfun{f_a}{q^i, P_\alpha}}N^a 
+\label{eq:gen-H^p-homo-H^c} \\
+&= \rbr{\pi_a - \rfun{f_a}{q^i, P_\alpha}}N^a 
+\equiv \rbr{\pi_a - \rfun{\frpa{L^\text{v}}{N^a}}{q^i, N^b, \bar V^a}} N^a
+\nonumber \\
+&= \pi_a N^a + P_\alpha \bar V^\alpha
++ \rfun{\frpa{L^\text{v}}{N^a}}{q^i, N^b, \bar V^\beta} N^a
+- P_\alpha \bar V^\alpha \nonumber \\
+&\equiv \pi_a N^a + P_\alpha \bar V^\alpha
++ \rfun{\frpa{L^\text{v}}{N^a}}{q^i, N^b, \bar V^\beta} N^a
+- \rfun{\frpa{L^\text{v}}{V^\alpha}}{q^i, P_\alpha, \bar V^\beta}
+\bar V^\alpha. \label{eq:H^p-homo-result}
+\end{align}
+where \cref{gen-H^p-homo-H^c} is a result of the general theory 
+\cite[ch.~2]{Gitman_1990}. Comparing 
+\cref{eq:H^p-homo-result,eq:gen-H^p-homo-def} gives 
+\cref{eq:homogeneity-2,eq:homogeneity-1}, which implies the homogeneity of 
+$L^\text{v}$ in $\rbr{N^a, V^\alpha}$.
 
+%%%%%%%%%%%%%%%%
+\subsubsection{The relativistic particle}
 
-\cite{Border_2000}
+\paragraph{Derivation with linear constraint}
 
+In \cite{Gitman_1990}, the primary constraints are \emph{defined} by
+\begin{equation}
+\varPhi_a \equiv \pi_a - \rfun{\frpa{L^\text{v}}{N^a}}{q^i, N^b, \bar V^a},
+\end{equation}
+and are always linear with respect to the momenta $\cbr{p_a}$.
+
+\paragraph{Gauge structure and constraint}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The free bosonic string}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Parametrised field theories}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Relational dynamical systems}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{General remarks on constrained systems}
